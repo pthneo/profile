@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/button";
-import { Envelope, LinkedinLogo } from "@/lib/icons";
+import { Envelope, GithubLogo } from "@/lib/icons";
 import Ripple from "@/components/ripple";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -11,12 +12,16 @@ export default function Home() {
         <p className="sr-only">Hi i&apos;m Ben, and welcome to my site.</p>
         <div className="flex gap-4 z-10">
           <Button variant="ghost" size="icon">
+            <Link href="mailto:ben@schenk.com" prefetch={false} target="_blank">
             <Envelope className="h-5 w-5" />
             <span className="sr-only">Click here to email me.</span>
+            </Link>
           </Button>
-          <Button variant="ghost" size="icon">
-            <LinkedinLogo className="h-5 w-5" />
-            <span className="sr-only">Click here to view my LinkedIn.</span>
+          <Button variant="ghost" size="icon" asChild>
+            <Link href="https://github.com/pthneo" prefetch={false} target="_blank">
+              <GithubLogo className="h-5 w-5" />
+              <span className="sr-only">Click here to view my GitHub.</span>
+            </Link>
           </Button>
           <ThemeToggle />
         </div>
@@ -30,7 +35,7 @@ export default function Home() {
             <h1 className="mt-4 text-4xl text-center font-bold">Hi! I&apos;m Ben</h1>
             <h3 className="text-center mt-3">Web Developer and Legal Enthusiast</h3>
           </div>
-          <div className="absolute top-[-297px] z-0 flex h-full w-full flex-col items-center justify-center">
+          <div className="absolute  z-0 h-[500px] w-full">
             <Ripple numCircles={6} mainCircleSize={280} className="hidden sm:block xl:hidden"/>
             <Ripple numCircles={10} mainCircleSize={280} className="hidden xl:block"/>
           </div>
