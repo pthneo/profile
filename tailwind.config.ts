@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
 export default {
   darkMode: ["class"],
@@ -15,19 +16,31 @@ export default {
         heading: ["var(--font-heading)", ...fontFamily.sans],
       },
       animation: {
-        ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
+        aurora: "aurora 60s linear infinite",
       },
       keyframes: {
-        ripple: {
-          "0%, 100%": {
-            transform: "translate(-50%, -50%) scale(1)",
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
           },
-          "50%": {
-            transform: "translate(-50%, -50%) scale(0.9)",
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
           },
         },
-      },
+      }
     },
   },
-  plugins: [],
+  plugins: [addVariablesForColors],
 } satisfies Config;
+
+
+function addVariablesForColors({ addBase, theme }: any) {
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+ 
+  addBase({
+    ":root": newVars,
+  });
+}

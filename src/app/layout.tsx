@@ -18,7 +18,7 @@ const fontHeading = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Ben Schenk",
-  description: "Hi! I'm Ben, a web developer and legal enthusiast. Visit my website to learn more about me and my work.",
+  description: "Hi! I'm Ben, a web and mobile developer. Visit my website to learn more about me and my work.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
