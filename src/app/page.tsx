@@ -6,6 +6,7 @@ import Link from "next/link";
 import { AuroraBackground } from "@/components/aurora";
 import * as motion from "motion/react-client";
 import LatestWorks from "@/components/projects";
+import Resume from "@/components/resume";
 
 export default function Home() {
   return (
@@ -45,27 +46,32 @@ export default function Home() {
             duration: 0.8,
             ease: "easeInOut"
           }}
-          className="z-10 hidden h-full w-full max-w-[1680px] grid-cols-3 grid-rows-9 gap-x-8 xl:grid">
+          className="z-10 hidden h-full w-full max-w-[1680px] max-h-[1300px] grid-cols-3 grid-rows-9 gap-x-8 xl:grid">
           <div className="col-span-1 row-span-7 row-start-3 rounded-3xl bg-zinc-50 p-12 shadow-md dark:bg-black">
             <h2 className="text-2xl font-medium tracking-tighter dark:text-white">Latest Works</h2>
             <LatestWorks />
           </div>
           <div className="col-span-1 row-span-5 row-start-5 rounded-3xl bg-zinc-50 p-12 shadow-md dark:bg-black">
             <h2 className="text-2xl font-medium tracking-tighter dark:text-white">About Me</h2>
-            <p className="mt-3 text-sm font-light">
-              I am a freelance web and mobile developer, specialising in React, React Native and
+            <p className="mt-3 text-sm font-normal text-zinc-">
+              I am a full-stack web and mobile developer, specialising in React, React Native and
               Next.js. I have been in the web design industry for around five years, and work on
-              projects for startups, non-profits, eCommerce, and other businesses. I am also
+              projects for startups, non-profits, eCommerce, and other businesses. <br />
+              <br />I am also
               currently working on some open-source projects, available on GitHub. Feel free to help
               me out with feedback or a pull request! <br />
               <br />
               Outside of work, I am a student at the University of Queensland, studing Law and
               Computer Science, and with a passion for football and video games.{" "}
             </p>
-            <h2 className="text-2xl mt-6 font-medium tracking-tighter dark:text-white">Tech Stack</h2>
+            <h2 className="text-2xl mt-8 font-medium tracking-tighter dark:text-white">Get in Touch</h2>
+            <p className="mt-3 text-md font-normal text-zinc-">
+              Want to chat? Feel free to send me an email using the icon above.
+            </p>
           </div>
           <div className="col-span-1 row-span-7 row-start-3 rounded-3xl bg-zinc-50 p-12 shadow-md dark:bg-black">
             <h2 className="text-2xl font-medium tracking-tighter dark:text-white">Resume</h2>
+            <Resume />
           </div>
         </motion.div>
         <div className="z-10 mt-[440px] hidden h-full w-full grid-cols-2 grid-rows-2 gap-8 sm:grid xl:hidden">
@@ -77,6 +83,7 @@ export default function Home() {
           </div>
           <div className="col-span-1 row-span-1 rounded-3xl bg-zinc-50 p-12 shadow-md dark:bg-black">
             <h2 className="text-2xl font-medium tracking-tighter">Resume</h2>
+            <Resume />
           </div>
         </div>
       </>

@@ -3,7 +3,6 @@
 import Slider from "react-slick";
 import "@/lib/slick.css";
 import "@/lib/slick-theme.css";
-import Image from "next/image";
 import { Separator } from "./separator";
 
 const projects = [
