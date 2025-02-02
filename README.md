@@ -1,1 +1,1 @@
-![README Banner](banner.png)
+![README Banner](/public/banner.png)
