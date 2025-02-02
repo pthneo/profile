@@ -1,3 +1,4 @@
+import { Badge } from "./badge";
 import { ResumeItem } from "./resume-item";
 
 const Education = [
@@ -45,6 +46,27 @@ const Work = [
   }
 ];
 
+const Skills = [
+  "React (including React 19)",
+  "Next.js (including Next 15)",
+  "React Native",
+  "WordPress",
+  "HTML",
+  "CSS",
+  "Vanilla JS",
+  "Node.js",
+  "Express",
+  "SQL (including MySQL, Oracle SQL and PostgreSQL)",
+  "RESTful APIs",
+  "Django",
+  "Python",
+  "DNS Management",
+  "Figma",
+  "Canva",
+  "Stripe",
+  "Groq"
+];
+
 export default function Resume() {
   return (
     <div className="py-6">
@@ -64,7 +86,7 @@ export default function Resume() {
         ))}
       </div>
       <div className="flex min-h-0 flex-col gap-y-3">
-        <h2 className="text-xl font-light pt-4">Work</h2>
+        <h2 className="pt-4 text-xl font-light">Work</h2>
         {Work.map((entry) => (
           <div key={entry.id}>
             <ResumeItem
@@ -79,19 +101,14 @@ export default function Resume() {
         ))}
       </div>
       <div className="flex min-h-0 flex-col gap-y-3">
-        <h2 className="text-xl font-light pt-4">Work</h2>
-        {Work.map((entry) => (
-          <div key={entry.id}>
-            <ResumeItem
-              key={entry.id}
-              logoURL={entry.logoURL}
-              altText={entry.company}
-              title={entry.company}
-              subtitle={entry.title}
-              period={`${entry.start} - ${entry.end}`}
-            />
-          </div>
+        <h2 className="pt-4 text-xl font-light">Skills</h2>
+        <div className="flex flex-wrap gap-2">
+        {Skills.map((skill, index) => (
+          <span key={index}>
+            <Badge key={index}>{skill}</Badge>
+          </span>
         ))}
+        </div>
       </div>
     </div>
   );
