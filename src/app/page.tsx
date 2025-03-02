@@ -1,84 +1,52 @@
-import { Button } from "@/components/button"
-import Banner from "@/components/banner"
-import { GithubLogo, LinkedinLogo, XLogo, RedditLogo, EnvelopeSimple } from "@/components/icons"
+import { Button } from "@/components/button";
+import Banner from "@/components/banner";
+import { GithubLogo, XLogo, EnvelopeSimple, YoutubeLogo } from "@/components/icons";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="animate-fade-in space-y-6">
       <Banner imageUrl="/banner-home.svg" alt="Home Banner" />
-      <div className="pt-6 px-2">
-        <h1 className="text-4xl font-bold mb-4">Welcome to My Profile</h1>
-        <p className="text-xl mb-4 text-muted-foreground">
-          Hello! I'm John Doe, a passionate developer with expertise in web technologies. This documentation-style
-          website showcases my skills, projects, and experience.
+      <div className="px-2 pt-6">
+        <h1 className="mb-4 text-4xl font-bold">Welcome</h1>
+        <p className="text-foreground mb-4 text-xl">
+          I'm Ben, a web developer specialising in React and Next.js. I have been in the web design
+          industry for around five years, and have worked on projects for startups, non-profits, and
+          other businesses in industries such as education, eCommerce, and health.
         </p>
-        <p className="text-lg mb-6 text-muted-foreground">
-          Feel free to explore the different sections using the sidebar navigation.
+        <p className="text-muted-foreground mb-6 text-lg">
+          Feel free to explore my site to learn about me, my work, and my hobbies and interests. Or check out my blog, where I discuss web development, technology, and other topics I find interesting.
         </p>
-        <p className="text-xl mb-4 text-muted-foreground">
-          Hello! I'm John Doe, a passionate developer with expertise in web technologies. This documentation-style
-          website showcases my skills, projects, and experience.
-        </p>
-        <p className="text-lg mb-6 text-muted-foreground">
-          Feel free to explore the different sections using the sidebar navigation.
-        </p>
-        <p className="text-xl mb-4 text-muted-foreground">
-          Hello! I'm John Doe, a passionate developer with expertise in web technologies. This documentation-style
-          website showcases my skills, projects, and experience.
-        </p>
-        <p className="text-lg mb-6 text-muted-foreground">
-          Feel free to explore the different sections using the sidebar navigation.
-        </p>
-        <p className="text-xl mb-4 text-muted-foreground">
-          Hello! I'm John Doe, a passionate developer with expertise in web technologies. This documentation-style
-          website showcases my skills, projects, and experience.
-        </p>
-        <p className="text-lg mb-6 text-muted-foreground">
-          Feel free to explore the different sections using the sidebar navigation.
-        </p>
-        <p className="text-xl mb-4 text-muted-foreground">
-          Hello! I'm John Doe, a passionate developer with expertise in web technologies. This documentation-style
-          website showcases my skills, projects, and experience.
-        </p>
-        <p className="text-lg mb-6 text-muted-foreground">
-          Feel free to explore the different sections using the sidebar navigation.
-        </p>
-        <p className="text-xl mb-4 text-muted-foreground">
-          Hello! I'm John Doe, a passionate developer with expertise in web technologies. This documentation-style
-          website showcases my skills, projects, and experience.
-        </p>
-        <p className="text-lg mb-6 text-muted-foreground">
-          Feel free to explore the different sections using the sidebar navigation.
-        </p>
-        <p className="text-xl mb-4 text-muted-foreground">
-          Hello! I'm John Doe, a passionate developer with expertise in web technologies. This documentation-style
-          website showcases my skills, projects, and experience.
-        </p>
-        <p className="text-lg mb-6 text-muted-foreground">
-          Feel free to explore the different sections using the sidebar navigation.
-        </p>
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 pt-2">
           <Button variant="outline" size="icon" asChild>
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
-              <GithubLogo className="h-5 w-5" />  
+            <Link href="https://github.com/pthneo" target="_blank" rel="noopener noreferrer">
+              <GithubLogo className="h-5 w-5" />
               <span className="sr-only">GitHub</span>
-            </a>
+            </Link>
           </Button>
           <Button variant="outline" size="icon" asChild>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
-              <LinkedinLogo className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
-            </a>
+            <Link
+              href="mailto:contact@benschenk.dev"
+              target="_blank"
+              rel="noopener noreferrer">
+              <EnvelopeSimple className="h-5 w-5" />
+              <span className="sr-only">Email</span>
+            </Link>
           </Button>
           <Button variant="outline" size="icon" asChild>
-            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">
+            <Link href="https://x.com/pthneo" target="_blank" rel="noopener noreferrer">
               <XLogo className="h-5 w-5" />
               <span className="sr-only">X</span>
-            </a>
+            </Link>
+          </Button>
+          <Button variant="outline" size="icon" asChild>
+            <Link href="https://youtube.com/@pthneo" target="_blank" rel="noopener noreferrer">
+              <YoutubeLogo className="h-5 w-5" />
+              <span className="sr-only">Youtube</span>
+            </Link>
           </Button>
         </div>
       </div>
     </div>
-  )
+  );
 }
-
