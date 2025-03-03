@@ -6,6 +6,13 @@ export const metadata: Metadata = {
   description: "Find out more about my latest web development and software projects, and view some website demos.",
 };
 
+/**
+* TODO:
+* Create project cards
+* Create subpages for some projects
+* Add social images and other metadata
+*/
+
 export default function Projects() {
   return (
     <div className="animate-fade-in space-y-6">

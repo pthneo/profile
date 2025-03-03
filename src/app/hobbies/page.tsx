@@ -6,6 +6,16 @@ export const metadata: Metadata = {
   description: "Check out my content relating to video games, music, sport and other entertainment, as well as view my social profiles.",
 };
 
+
+/**
+ * TODO:
+ * Add blurb
+ * Add discord profile embedding
+ * Add spotify profile embedding
+ * Add steam profile embedding
+ * Add social images and other metadata
+ */
+
 export default function Hobbies() {
   return (
     <div className="animate-fade-in space-y-6">

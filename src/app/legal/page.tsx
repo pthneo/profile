@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   description: "Ensure you follow these terms and conditions that apply to you when accessing my site.",
 };
 
+/**
+* TODO:
+* Write terms and conditions
+* Add social images and other metadata
+*/
+
 export default function Legal() {
   return (
     <div className="animate-fade-in space-y-6">

@@ -30,6 +30,8 @@ export const metadata: Metadata = {
 
 // TODO: Fix scrollbar staying visible when not needed
 // TODO: Add page transitions and animations
+// TODO: Fix footer positioning
+// TODO: Add sitemap, schema, and other SEO improvements
 export default function RootLayout({
   children,
 }: Readonly<{

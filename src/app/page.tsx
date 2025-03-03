@@ -3,6 +3,10 @@ import Banner from "@/components/banner";
 import { GithubLogo, XLogo, EnvelopeSimple, YoutubeLogo } from "@/components/icons";
 import Link from "next/link";
 
+/**
+ * TODO: Setup social images and other metadata
+ */
+
 export default function Home() {
   return (
     <div className="space-y-6">
