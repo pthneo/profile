@@ -20,11 +20,16 @@ const fontHeading = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Ben Schenk",
+  title: {
+    default: "Ben Schenk: Web Developer",
+    template: "%s | Ben Schenk",
+  },
   description: "Hi! I'm Ben, a web developer. Visit my website to learn more about me and my work.",
+  icons: [{ rel: "icon", url: "/icon.png" }],
 };
 
 // TODO: Fix scrollbar staying visible when not needed
+// TODO: Add page transitions and animations
 export default function RootLayout({
   children,
 }: Readonly<{

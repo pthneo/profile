@@ -9,17 +9,15 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger
-} from "@/components/ui/sheet";
-import { Media, Pages } from "@/server/router";
-import { useMediaQuery } from "@/components/hooks/use-media-query";
+} from "@/components/sheet";
+import { useMediaQuery } from "@/components/use-media-query";
 import Image from "next/image";
 import { List, User, X } from "@/components/icons";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { Button } from "@/components/button";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/avatar";
 
-export function MobileMenu(props: { userName: string | null; userAvatar: string | null }) {
+export function NavigationSheet() {
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 640px)");
 
@@ -30,112 +28,68 @@ export function MobileMenu(props: { userName: string | null; userAvatar: string 
   }, [isDesktop]);
 
   return (
-      <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger asChild>
-          <Button variant="ghost" size="icon">
-            <List className="size-6" />
-            <span className="sr-only">Toggle menu</span>
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="right" className="w-full bg-white dark:bg-black">
-          <SheetHeader className="sr-only">
-            <SheetTitle>Navigation Menu</SheetTitle>
-            <SheetDescription>Use the links below to navigate the site.</SheetDescription>
-          </SheetHeader>
-          <div className="flex h-full flex-col justify-between">
-            <div className="mt-0.5 flex flex-col">
-              <div className="flex w-full justify-between">
-                <div className="flex items-center gap-2 pb-8">
-                  <Image
-                    src={Media.Logo}
-                    width="48"
-                    height="48"
-                    alt="Morgana Logo"
-                    sizes="(max-width: 640px) 32px, 48px"
-                    className="size-8 sm:size-12"
-                  />
-                  <h3 className="text-lg font-bold tracking-tighter sm:text-xl">Morgana</h3>
-                </div>
-                <Button variant="ghost" className="mr-[-6px]" size="icon" onClick={() => setOpen(false)}>
-                  <X className="size-6" />
-                  <span className="sr-only">Toggle menu</span>
-                </Button>
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger asChild>
+        <Button variant="outline" size="icon" className="lg:hidden">
+          <List className="h-6 w-6" />
+          <span className="sr-only">Open Navigation Menu</span>
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="right" className="w-full bg-white dark:bg-black">
+        <SheetHeader className="sr-only">
+          <SheetTitle>Navigation Menu</SheetTitle>
+          <SheetDescription>Use the links below to navigate the site.</SheetDescription>
+        </SheetHeader>
+        <div className="flex h-full p-8 flex-col justify-between">
+          <div className="mt-0.5 flex flex-col">
+            <div className="flex items-center gap-4 pb-10">
+              <Avatar className="size-12">
+                <AvatarImage src="https://github.com/shadcn.aspng" className="size-12" />
+                <AvatarFallback className="size-12">
+                  <User weight="thin" />
+                </AvatarFallback>
+              </Avatar>
+              <div>
+                <h1 className="text-2xl font-bold">Ben Schenk</h1>
+                <p className="text-muted-foreground text-sm">Web Developer</p>
               </div>
-              <Link
-                href={Pages.Home}
-                onClick={() => setOpen(false)}
-                className="ml-4 pb-4 text-lg font-bold w-fit">
-                Home
-              </Link>
-              <Link
-                href={Pages.Features}
-                onClick={() => setOpen(false)}
-                className="ml-4 pb-4 text-lg font-bold w-fit">
-                Features
-              </Link>
-              <Link
-                href={Pages.Pricing}
-                onClick={() => setOpen(false)}
-                className="ml-4 pb-4 text-lg font-bold w-fit">
-                Pricing
-              </Link>
-              {props.userName ? (
-                <>
-                  <p className="mb-2 ml-4">Welcome back, {props.userName}.</p>
-                  <Link
-                    href={Pages.Hub}
-                    onClick={() => setOpen(false)}
-                    className="ml-4 pb-4 text-lg font-bold w-fit">
-                    Go to Hub?
-                  </Link>
-                </>
-              ) : (
-                <>
-                  <Link
-                    href={Pages.Login}
-                    onClick={() => setOpen(false)}
-                    className="ml-4 pb-4 text-lg font-bold w-fit">
-                    Login
-                  </Link>
-                  <Link
-                    href={Pages.Signup}
-                    onClick={() => setOpen(false)}
-                    className="ml-4 pb-4 text-lg font-bold w-fit">
-                    Sign Up
-                  </Link>
-                </>
-              )}
-              <span className="p-4">
-                <Separator className="" />
-              </span>
-              <Link
-                href={Pages.Legal}
-                onClick={() => setOpen(false)}
-                className="ml-4 pt-4 pb-4 pl-0.5 text-base ">
-                Legal
-              </Link>
-              <Link
-                href={Pages.Support}
-                onClick={() => setOpen(false)}
-                className="ml-4 pb-4 pl-0.5 text-base">
-                Support
-              </Link>
             </div>
-            <div className="ml-4 flex justify-start gap-2">
-              {props.userName && (
-                <Avatar asChild className="rounded-lg">
-                  <Link href={Pages.Settings} onClick={() => setOpen(false)}>
-                    <AvatarImage src={props.userAvatar ?? ""} />
-                    <AvatarFallback className="rounded-lg">
-                      <User weight="thin" />
-                    </AvatarFallback>
-                  </Link>
-                </Avatar>
-              )}
-              <ThemeToggle />
-            </div>
+            <Link
+              href="/"
+              onClick={() => setOpen(false)}
+              className="ml-4 w-fit pb-4 text-lg font-bold">
+              Home
+            </Link>
+            <Link
+              href="/about"
+              onClick={() => setOpen(false)}
+              className="ml-4 w-fit pb-4 text-lg font-bold">
+              About Me
+            </Link>
+            <Link
+              href="/hobbies"
+              onClick={() => setOpen(false)}
+              className="ml-4 w-fit pb-4 text-lg font-bold">
+              Hobbies
+            </Link>
+            <Link
+              href="/projects"
+              onClick={() => setOpen(false)}
+              className="ml-4 w-fit pb-4 text-lg font-bold">
+              Projects
+            </Link>
+            <Link
+              href="/blog"
+              onClick={() => setOpen(false)}
+              className="ml-4 w-fit pb-4 text-lg font-bold">
+              Blog
+            </Link>
           </div>
-        </SheetContent>
-      </Sheet>
+          <div className="ml-4 flex justify-start gap-2">
+            <ThemeToggle />
+          </div>
+        </div>
+      </SheetContent>
+    </Sheet>
   );
 }

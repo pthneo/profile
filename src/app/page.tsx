@@ -5,16 +5,16 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="animate-fade-in space-y-6">
-      <Banner imageUrl="/banner-home.svg" alt="Home Banner" />
-      <div className="px-2 pt-6">
-        <h1 className="mb-4 text-4xl font-bold">Welcome</h1>
-        <p className="text-foreground mb-4 text-xl">
+    <div className="space-y-6">
+      <Banner imageUrl="/banner-home.svg" alt="Banner image, that says Ben Schenk, web developer." />
+      <div className="px-2 pt-6 animate-fade-in">
+        <h1 className="mb-4 text-3xl sm:text-4xl font-bold">Welcome</h1>
+        <p className="text-foreground mb-4 sm:text-xl">
           I'm Ben, a web developer specialising in React and Next.js. I have been in the web design
           industry for around five years, and have worked on projects for startups, non-profits, and
           other businesses in industries such as education, eCommerce, and health.
         </p>
-        <p className="text-muted-foreground mb-6 text-lg">
+        <p className="text-muted-foreground mb-6 sm:text-lg">
           Feel free to explore my site to learn about me, my work, and my hobbies and interests. Or check out my blog, where I discuss web development, technology, and other topics I find interesting.
         </p>
         <div className="flex space-x-4 pt-2">

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { List, User } from "./icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/avatar";
 import { Button } from "./button";
+import { NavigationSheet } from "./navigation-sheet";
 
 export default function NavigationPane() {
   return (
@@ -20,12 +21,7 @@ export default function NavigationPane() {
               <p className="text-muted-foreground text-sm">Web Developer</p>
             </div>
           </div>
-          <Button variant="outline" size="icon" asChild className="lg:hidden">
-            <Link href="https://youtube.com/@pthneo" target="_blank" rel="noopener noreferrer">
-              <List className="h-6 w-6" />
-              <span className="sr-only">Youtube</span>
-            </Link>
-          </Button>
+          <NavigationSheet />
         </div>
         <ul className="space-y-2 hidden lg:block">
           <li>
