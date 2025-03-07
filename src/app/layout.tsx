@@ -39,17 +39,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("antialiased", fontHeading.variable, fontBody.variable)}>
+      <body className={cn("antialiased md:overflow-hidden styled-scrollbar", fontHeading.variable, fontBody.variable)}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative min-h-screen lg:max-h-screen bg-background text-foreground overflow-hidden">
-            <div className="flex flex-col lg:flex-row container mx-auto max-w-4xl lg:max-w-7xl px-4 pt-16">
+          <div className="relative min-h-screen lg:max-h-screen bg-background text-foreground md:overflow-hidden">
+            <div className="flex flex-col lg:flex-row container md:overflow-hidden mx-auto max-w-4xl lg:max-w-7xl px-4 pt-8 md:pt-16 pb-12">
               <NavigationPane />
-              <main className="max-h-screen flex-1 overflow-auto lg:pl-8 lg:pr-2 lg:pt-5 p-0 lg:styled-scrollbar">{children}</main>
+              <main className="max-h-screen flex-1 md:overflow-auto lg:pl-8 md:pr-4 lg:pt-5 p-0 pb-32 md:styled-scrollbar">{children}</main>
               <div className="lg:hidden my-10 text-center text-muted-foreground text-sm">
                 <p className="inline-flex">© 2025 Ben Schenk. All rights reserved.</p>
                 <Link href="/legal" className="underline underline-offset-3 ml-2">Legal</Link>

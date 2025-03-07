@@ -1,4 +1,5 @@
 import Banner from "@/components/banner";
+import ProjectsList from "@/components/projects-list";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -17,8 +18,8 @@ export default function Projects() {
   return (
     <div className="animate-fade-in space-y-6">
       <Banner imageUrl="/projects-banner.webp" alt="Banner image, that titles the page Projects." />
-      <div className="px-2 pt-6">
-        <h1 className="mb-4 text-4xl font-bold">Insert</h1>
+      <div className="pt-6">
+        <ProjectsList />
       </div>
     </div>
   );

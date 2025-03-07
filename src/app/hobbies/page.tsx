@@ -21,7 +21,7 @@ export default function Hobbies() {
     <div className="animate-fade-in space-y-6">
       <Banner imageUrl="/hobbies-banner.webp" alt="Banner image, that titles the page Hobbies." />
       <div className="px-2 pt-6">
-        <h1 className="mb-4 text-4xl font-bold">Insert</h1>
+        <h1 className="mb-4 text-4xl font-bold">Social profiles</h1>
       </div>
     </div>
   );
