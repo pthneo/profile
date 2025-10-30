@@ -35,10 +35,27 @@ const projects = [
     icon: "/uqf.webp",
   },
   {
+    id: "expressAMS",
+    title: "ExpressAMS",
+    description:
+      "A cloud-based airline management system and API built with Next.js.",
+    website: "expressams.benschenk.dev",
+    icon: "/expressams.png",
+  },
+  {
+    id: "openjudge",
+    title: "OpenJudge",
+    description:
+      "A leetcode alternative using a microservice architecture using Golang, React and FastAPI.",
+    website: "www.openjudge.software",
+    icon: "/openjudge.png",
+  },
+  {
     id: "morgana",
     title: "Morgana",
     description:
       "A full-stack web app campaign manager and game notebook for TTRPGs built with Next.js.",
+    website: "morgana.ink",
     icon: "/morgana.webp",
   },
   {
@@ -46,14 +63,8 @@ const projects = [
     title: "Economeals",
     description:
       "A full-stack AI-powered recipe and diet planner app built with React and Django.",
+    website: "economeals.benschenk.dev",
     icon: "/economeals.webp",
-  },
-  {
-    id: "merit-mobile",
-    title: "Merit (Mobile)",
-    description:
-      "A loyalty card wallet cross-platform mobile application built with React Native.",
-    icon: "/merit.webp",
   },
 ]
 
@@ -84,7 +95,7 @@ export default function ProjectsList() {
                 rel="noopener noreferrer"
                 className="flex items-center mt-5 group-hover:text-purple-700 transition-all"
               >
-                <LinkIcon className="w-5 h-5 mr-2" />
+                <LinkIcon className="w-3 h-3 mt-1 mr-2" />
                 {project.website}
               </Link>)}
             </div>

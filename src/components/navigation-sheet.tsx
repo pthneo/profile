@@ -57,36 +57,31 @@ export function NavigationSheet() {
             <Link
               href="/"
               onClick={() => setOpen(false)}
-              className="ml-4 w-fit pb-4 text-lg font-bold">
+              className="ml-1 w-fit pb-4 text-lg font-bold">
               Home
             </Link>
             <Link
               href="/about"
               onClick={() => setOpen(false)}
-              className="ml-4 w-fit pb-4 text-lg font-bold">
+              className="ml-1 w-fit pb-4 text-lg font-bold">
               About Me
-            </Link>
-            <Link
-              href="/hobbies"
-              onClick={() => setOpen(false)}
-              className="ml-4 w-fit pb-4 text-lg font-bold">
-              Hobbies
             </Link>
             <Link
               href="/projects"
               onClick={() => setOpen(false)}
-              className="ml-4 w-fit pb-4 text-lg font-bold">
+              className="ml-1 w-fit pb-4 text-lg font-bold">
               Projects
             </Link>
             <Link
               href="/blog"
               onClick={() => setOpen(false)}
-              className="ml-4 w-fit pb-4 text-lg font-bold">
+              className="ml-1 w-fit pb-4 text-lg font-bold">
               Blog
             </Link>
           </div>
-          <div className="ml-4 flex justify-start gap-2">
+          <div className="ml-1 flex justify-start gap-2">
             <ThemeToggle />
+            <p className="text-muted-foreground text-sm mt-2">© 2025 Ben Schenk</p>
           </div>
         </div>
       </SheetContent>

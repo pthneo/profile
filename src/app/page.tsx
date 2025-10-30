@@ -19,7 +19,7 @@ export default function Home() {
           other businesses in industries such as education, eCommerce, and health.
         </p>
         <p className="text-muted-foreground mb-6 sm:text-lg">
-          Feel free to explore my site to learn about me, my work, and my hobbies and interests. Or check out my blog, where I discuss web development, technology, and other topics I find interesting.
+          Feel free to explore my site to learn about me, my work, and my interests. Or check out my blog, where I discuss web development, technology, and other topics I find interesting.
         </p>
         <div className="flex space-x-4 pt-2">
           <Button variant="outline" size="icon" asChild>
