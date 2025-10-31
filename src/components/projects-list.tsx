@@ -1,74 +1,51 @@
 import Link from "next/link"
 import Image from "next/image"
 import { LinkIcon } from "lucide-react"
+import { getPayload } from "payload"
+import config from "@payload-config"
 
-const projects = [
-  {
-    id: "portfolio",
-    title: "This Website",
-    description: "A lightweight portfolio and blog website built with Next.js and optimised for SEO.",
-    website: "benschenk.dev",
-    icon: "/profile.jpeg",
-  },
-  {
-    id: "merit",
-    title: "Merit",
-    description:
-      "An online loyalty card SaaS project for small businesses and restaruants.",
-    website: "merit.benschenk.dev",
-    icon: "/merit.webp",
-  },
-  {
-    id: "kvn",
-    title: "Kiamba Valley Nursery",
-    description:
-      "An optimised static website for a tree nursery built with Vanilla HTML, CSS & JS.",
-    website: "kvn.net.au",
-    icon: "/kvn.jpg",
-  },
-  {
-    id: "uqf",
-    title: "UQ Football Society",
-    description:
-      "A full-stack web application for a university society built with Wordpress.",
-    website: "uqfootball.com",
-    icon: "/uqf.webp",
-  },
-  {
-    id: "expressAMS",
-    title: "ExpressAMS",
-    description:
-      "A cloud-based airline management system and API built with Next.js.",
-    website: "expressams.benschenk.dev",
-    icon: "/expressams.png",
-  },
-  {
-    id: "openjudge",
-    title: "OpenJudge",
-    description:
-      "A leetcode alternative using a microservice architecture using Golang, React and FastAPI.",
-    website: "www.openjudge.software",
-    icon: "/openjudge.png",
-  },
-  {
-    id: "morgana",
-    title: "Morgana",
-    description:
-      "A full-stack web app campaign manager and game notebook for TTRPGs built with Next.js.",
-    website: "morgana.ink",
-    icon: "/morgana.webp",
-  },
-  {
-    id: "economeals",
-    title: "Economeals",
-    description:
-      "A full-stack AI-powered recipe and diet planner app built with React and Django.",
-    website: "economeals.benschenk.dev",
-    icon: "/economeals.webp",
-  },
-]
+async function getProjects() {
+  try {
+    const payload = await getPayload({ config })
+    const result = await payload.find({
+      collection: "projects",
+      limit: 100,
+    })
+    return result.docs
+  } catch (error) {
+    console.error("Error fetching projects:", error)
+    // Fallback to empty array if Payload isn't configured yet
+    return []
+  }
+}
 
-export default function ProjectsList() {
+function getIconUrl(icon: any): string {
+  if (!icon) return "/profile.jpeg"
+  
+  // If icon is a string (already a URL), return it
+  if (typeof icon === "string") return icon
+  
+  // If icon is a Payload media object
+  if (icon && typeof icon === "object") {
+    if (icon.url) return icon.url
+    if (icon.filename) return `/media/${icon.filename}`
+  }
+  
+  return "/profile.jpeg"
+}
+
+export default async function ProjectsList() {
+  const projects = await getProjects()
+  
+  // Fallback to empty state if no projects
+  if (projects.length === 0) {
+    return (
+      <div className="text-center text-zinc-400 py-12">
+        <p>No projects found. Add projects through the Payload admin panel.</p>
+      </div>
+    )
+  }
+
   return (
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project) => (
@@ -76,7 +53,7 @@ export default function ProjectsList() {
               <div className="mb-6 flex justify-start">
                 <div className="relative p-4 w-16 h-16 flex items-center justify-center">
                   <Image
-                    src={project.icon}
+                    src={getIconUrl(project.icon)}
                     alt={`${project.title}'s logo`}
                     fill
                     className="object-contain rounded-full border border-zinc-300 dark:border-0"
