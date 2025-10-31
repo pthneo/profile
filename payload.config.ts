@@ -9,6 +9,10 @@ import sharp from "sharp";
 export default buildConfig({
   secret: process.env.PAYLOAD_SECRET!,
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL!,
+  db: mongooseAdapter({
+    url: process.env.DATABASE_URI!,
+  }),
+  sharp,
   admin: {
     user: "users",
   },
@@ -79,7 +83,10 @@ export default buildConfig({
     },
     {
       slug: "media",
-      upload: true,
+      upload: {
+        staticDir: 'media',
+        mimeTypes: ['image/*'],
+      },
       fields: [
         {
           name: "alt",
@@ -98,9 +105,5 @@ export default buildConfig({
       ],
     },
   ],
-  db: mongooseAdapter({
-    url: process.env.DATABASE_URI!,
-  }),
-  sharp
 });
 
